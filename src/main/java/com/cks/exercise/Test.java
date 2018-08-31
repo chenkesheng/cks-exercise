@@ -34,8 +34,10 @@ public class Test {
         linkList.add("bbb");
         System.out.println(linkList.size());
 
-        linkList.add(2, "add");
-//        linkList.remove(1);
+//        linkList.add(2, "add");
+//        linkList.remove(5);
+        linkList.reverseBetween(2, 4);
         linkList.printAll();
     }
+
 }

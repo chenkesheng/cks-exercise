@@ -88,19 +88,65 @@ public class LinkList<T> {
 //        }
 //    }
 
-    public void remove(int index) {
+    public void remove(int index) throws Exception {
         Node temp = head;
         int length = 1;
         if (index < 1 || index > size) {
-            System.err.println("删除位置不合法");
+            throw new Exception("删除位置不合法");
         }
         while (temp.next != null) {
+            if (index == 1) {
+                head = temp.next;
+                return;
+            }
             if (index == length++) {
                 temp.next = temp.next.next;
-                break;
+                return;
             }
+            temp = temp.next;
         }
-//        temp = temp.next;
+    }
+
+
+    public void reverseBetween(int m, int n) {
+        Node temp = head;
+        Node p = head;
+        int length = 1;
+
+        Node first = head;
+        Node last = head;
+
+        for (int j = m; j <= n; j++) {
+            temp = temp.next;
+        }
+//        for (int i = 0; i < m; i++) {
+//            last = last.next;
+//        }
+
+        if (m == 1) {
+            head = temp.next;
+            return;
+        }
+
+        while (p.next != null) {
+            if (m == length++) {
+                temp.next = p.next.next;
+                p.next = temp;
+//                p.next = temp;
+                return;
+            }
+//            p = p.next;
+        }
+
+
+//        while (first.next != null) {
+//            if (n == length++) {
+//                last.next = first.next.next;
+//                first.next = last;
+//                return;
+//            }
+////            first = first.next;
+//        }
     }
 
     public LinkList() {

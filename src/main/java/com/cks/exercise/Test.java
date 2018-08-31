@@ -1,6 +1,6 @@
 package com.cks.exercise;
 
-import java.util.LinkedList;
+import com.cks.exercise.linkedList.LinkList;
 
 /**
  * @Author: cks

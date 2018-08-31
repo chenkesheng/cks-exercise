@@ -1,4 +1,4 @@
-package com.cks.exercise;
+package com.cks.exercise.linkedList;
 
 /**
  * @Author: cks

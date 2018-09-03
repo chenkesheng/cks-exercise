@@ -1,5 +1,6 @@
 package com.cks.exercise;
 
+import com.cks.exercise.linkedList.CycleLinkedList;
 import com.cks.exercise.linkedList.LinkList;
 
 /**
@@ -27,17 +28,34 @@ public class Test {
     }
 
     public static void main(String[] args) throws Exception {
-        LinkList linkList = new LinkList();
+        LinkList<Object> linkList = new LinkList<>();
         linkList.add(1);
         linkList.add(2);
         linkList.add("aaa");
         linkList.add("bbb");
-        System.out.println(linkList.size());
-
+        linkList.add(1);
+        linkList.add("abc");
+        linkList.add("aaa");
+        linkList.dup();
+        for (int i = 0;i<linkList.size();i++){
+            System.out.println(linkList.get(i));
+        }
 //        linkList.add(2, "add");
 //        linkList.remove(5);
-        linkList.reverseBetween(2, 4);
-        linkList.printAll();
+//        linkList.reverseBetween(2, 4);
+//        linkList.printAll();
+
+//        CycleLinkedList<Object> linkedList = new CycleLinkedList<>();
+//        linkedList.add(1);
+//        linkedList.add(2);
+//        linkedList.add("海苔");
+//        linkedList.add("傻吊");
+//
+////        System.out.println(linkedList.size());
+//
+//        for (int i = 0;i<linkedList.size();i++){
+//            System.out.println(linkedList.get(i).toString());
+//        }
     }
 
 }

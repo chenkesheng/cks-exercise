@@ -8,36 +8,63 @@ package com.cks.exercise.linkedList;
  */
 public class LinkList<T> {
 
-    private Node head;
-    private Node tail;
+    private Node<T> head;
+    private Node<T> tail;
 
     private int size = 0;
 
-    private class Node {
-        private Object data;
-        private Node next;
+    static class Node<T> {
+        private T data;
+        private Node<T> next;
+
+        public T getData() {
+            return data;
+        }
+
+        public void setData(T data) {
+            this.data = data;
+        }
+
+        public Node<T> getNext() {
+            return next;
+        }
+
+        public void setNext(Node<T> next) {
+            this.next = next;
+        }
 
         public Node() {
         }
 
-        public Node(Object data) {
+        Node(T data) {
             this.data = data;
+        }
+
+        @Override
+        public String toString() {
+            return "Node{" +
+                    "data=" + data +
+                    ", next=" + next +
+                    '}';
         }
     }
 
     //尾插法
-    public void add(Object obj) {
-        Node newNode = new Node(obj);
+    public void add(T obj) {
+        Node<T> newNode = new Node<>(obj);
         if (head == null) {
             head = newNode;
             tail = newNode;
             size++;
             return;
         }
-        if (tail != null) {
-            tail.next = newNode;
-            tail = tail.next;
-        }
+//        if (tail != null) {
+//            tail.next = newNode;
+//            tail = tail.next;
+//        }
+        //头插法
+        newNode.next = head;
+        head = newNode;
 //        Node temp = head;
 //        while (temp.next != null) {
 //            temp = temp.next;
@@ -46,8 +73,8 @@ public class LinkList<T> {
         size++;
     }
 
-    public void add(int index, Object obj) throws Exception {
-        Node newNode = new Node(obj);
+    public void add(int index, T obj) throws Exception {
+        Node<T> newNode = new Node<>(obj);
         //判断要插入的位置是否合法
         if (index < 1 || index > size + 1) {
             throw new Exception("插入位置不合法");
@@ -55,7 +82,7 @@ public class LinkList<T> {
         //记录遍历到第几个节点
         int length = 1;
         //移动的指针
-        Node temp = head;
+        Node<T> temp = head;
         //遍历链表
         while (temp.next != null) {
             if (index == length++) {
@@ -89,7 +116,7 @@ public class LinkList<T> {
 //    }
 
     public void remove(int index) throws Exception {
-        Node temp = head;
+        Node<T> temp = head;
         int length = 1;
         if (index < 1 || index > size) {
             throw new Exception("删除位置不合法");
@@ -109,12 +136,12 @@ public class LinkList<T> {
 
 
     public void reverseBetween(int m, int n) {
-        Node temp = head;
-        Node p = head;
+        Node<T> temp = head;
+        Node<T> p = head;
         int length = 1;
 
-        Node first = head;
-        Node last = head;
+        Node<T> first = head;
+        Node<T> last = head;
 
         for (int j = m; j <= n; j++) {
             temp = temp.next;
@@ -174,10 +201,75 @@ public class LinkList<T> {
      *
      * @param head
      */
-    public void printNodeData(Node head) {
+    public void printNodeData(Node<T> head) {
         if (head != null) {
             System.out.print(head.data + " ");
             printNodeData(head.next);
         }
+    }
+
+    public void dup() {
+        if (head != null) {
+            deleteDuplication(head);
+        }
+    }
+
+    public void deleteDuplication(Node<T> pHead) {
+        if (pHead == null) {
+            return;
+        }
+        Node<T> preNode = null;//前结点
+        Node<T> node = pHead;//当前结点
+        while (node != null) {
+            Node<T> nextNode = node.getNext();//下一个结点
+            boolean needDelete = false;
+            //判断当前结点和下一个结点值是否相等
+            if (nextNode != null && nextNode.data == node.data)
+                needDelete = true;
+            if (!needDelete) {//不相等，向前移动
+                preNode = node;
+                node = node.getNext();
+            } else {//相等，删除该结点
+                T value = node.data;
+                Node<T> toBeDel = node;
+                while (toBeDel != null && toBeDel.data == value) {
+                    nextNode = toBeDel.getNext();//删除该结点
+                    toBeDel = nextNode;
+                }
+                if (preNode == null) {//头结点删除时
+                    pHead = nextNode;
+                } else {
+                    //即删除了重复结点
+                    preNode.setNext(nextNode);
+                }
+                node = nextNode;
+            }
+        }
+    }
+
+    /**
+     * 获取元素
+     *
+     * @param index
+     * @return
+     */
+    public T get(int index) {
+        Node<T> p;
+        int length = 0;
+        p = head;
+        while (length != index && p != tail) {
+            length++;
+            p = p.next;
+        }
+        return p.data;
+    }
+
+    @Override
+    public String toString() {
+        return "LinkList{" +
+                "head=" + head +
+                ", tail=" + tail +
+                ", size=" + size +
+                '}';
     }
 }

@@ -215,22 +215,23 @@ public class LinkList<T> {
     }
 
     public void deleteDuplication(Node<T> pHead) {
-        Node first = new Node(-1);
-        first.next = pHead;
-        Node<T> last = first;
         Node<T> p = pHead;
-
-        while (p != null && p.next != null) {
-            if (p.data == p.next.data) {
-                T val = p.data;
-                while (p != null && p.data == val) {
-                    p = p.next;
-                    last.next = p;
+        while (p != null) {
+            T data = p.data;
+            Node<T> pre = p;
+            Node<T> h = p.next;
+            while (h != null) {
+                if (h.data.equals(data)) {
+                    pre.next = h.next;
+                    h.next = null;
+                    h = pre.next;
+                    size--;
+                } else {
+                    pre = h;
+                    h = h.next;
                 }
-            } else {
-                last = p;
-                p = p.next;
             }
+            p = p.next;
         }
     }
 

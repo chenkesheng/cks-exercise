@@ -36,7 +36,7 @@ public class LinkList<T> {
         public Node() {
         }
 
-        Node(T data) {
+        public Node(T data) {
             this.data = data;
         }
 
@@ -215,34 +215,21 @@ public class LinkList<T> {
     }
 
     public void deleteDuplication(Node<T> pHead) {
-        if (pHead == null) {
-            return;
-        }
-        Node<T> preNode = null;//前结点
-        Node<T> node = pHead;//当前结点
-        while (node != null) {
-            Node<T> nextNode = node.getNext();//下一个结点
-            boolean needDelete = false;
-            //判断当前结点和下一个结点值是否相等
-            if (nextNode != null && nextNode.data == node.data)
-                needDelete = true;
-            if (!needDelete) {//不相等，向前移动
-                preNode = node;
-                node = node.getNext();
-            } else {//相等，删除该结点
-                T value = node.data;
-                Node<T> toBeDel = node;
-                while (toBeDel != null && toBeDel.data == value) {
-                    nextNode = toBeDel.getNext();//删除该结点
-                    toBeDel = nextNode;
+        Node first = new Node(-1);
+        first.next = pHead;
+        Node<T> last = first;
+        Node<T> p = pHead;
+
+        while (p != null && p.next != null) {
+            if (p.data == p.next.data) {
+                T val = p.data;
+                while (p != null && p.data == val) {
+                    p = p.next;
+                    last.next = p;
                 }
-                if (preNode == null) {//头结点删除时
-                    pHead = nextNode;
-                } else {
-                    //即删除了重复结点
-                    preNode.setNext(nextNode);
-                }
-                node = nextNode;
+            } else {
+                last = p;
+                p = p.next;
             }
         }
     }

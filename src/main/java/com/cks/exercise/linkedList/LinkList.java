@@ -235,6 +235,19 @@ public class LinkList<T> {
         }
     }
 
+//    public void deleteDuplication(Node<T> pHead) {
+//        Node<T> p = pHead;
+//        while (p != null) {
+//            T data = p.data;
+//            Node<T> last = p.next;
+//            Node<T> pre = p;
+//            while (data.equals(last.data)){
+//                pre.next = last.next;
+//            }
+//            p = p.next;
+//        }
+//    }
+
     /**
      * 获取元素
      *
@@ -242,9 +255,8 @@ public class LinkList<T> {
      * @return
      */
     public T get(int index) {
-        Node<T> p;
+        Node<T> p = head;
         int length = 0;
-        p = head;
         while (length != index && p != tail) {
             length++;
             p = p.next;

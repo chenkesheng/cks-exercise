@@ -53,7 +53,7 @@ public class DoublyLinkedList<E> {
 
     public void add(int index, E item) {
         Node<E> succ = node(index);
-        final Node<E> pred = node(index).pre;
+        final Node<E> pred = succ.pre;
         Node<E> newNode = new Node<>(pred, item, succ);
         succ.pre = newNode;
         if (pred == null){

@@ -31,21 +31,24 @@ public class Test {
     }
 
     public static void main(String[] args) throws Exception {
-        LinkList<Object> linkList = new LinkList<>();
-        linkList.add(1);
-        linkList.add(1);
-//        linkList.add("aaa");
-//        linkList.add("bbb");
-        linkList.add(1);
-//        linkList.add("abc");
-//        linkList.add("aaa");
-        linkList.add(2);
-        linkList.add(3);
-        linkList.dup();
-        System.out.println(linkList.size());
-        for (int i = 0;i<linkList.size();i++){
-            System.out.println(linkList.get(i));
-        }
+//        LinkList<Object> linkList = new LinkList<>();
+////        linkList.add("abc");
+////        linkList.add("aaa");
+//        linkList.add(1);
+//        linkList.add(1);
+////        linkList.add("aaa");
+////        linkList.add("bbb");
+//        linkList.add(1);
+//        linkList.add(2);
+//        linkList.add(2);
+//        linkList.add(3);
+//        linkList.add(6);
+//        linkList.dup();
+////        System.out.println(linkList.size());
+////        linkList.printAll();
+//        for (int i = 0; i < linkList.size(); i++) {
+//            System.out.println(linkList.get(i));
+//        }
 //        linkList.add(2, "add");
 //        linkList.remove(5);
 //        linkList.reverseBetween(2, 4);
@@ -65,15 +68,20 @@ public class Test {
 
 //        LinkedList<Object> list = new LinkedList<>();
 
-//        DoublyLinkedList<Object> list = new DoublyLinkedList<>();
-//        list.add(1);
-//        list.add(2);
-//        list.add(3);
-//        list.add("aa");
-//        list.add("aaa");
-//        list.add("b");
+        DoublyLinkedList<Object> list = new DoublyLinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add("aa");
+        list.add("aaa");
+        list.add("b");
+        list.add(2, "add");
+        list.remove(3);
 //        list.print();
 //        System.out.println(list.get(4).toString());
+        for(int i = 0;i<list.size();i++){
+            System.out.println(list.get(i).toString());
+        }
     }
 
 }

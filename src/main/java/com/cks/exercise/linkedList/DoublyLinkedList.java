@@ -30,16 +30,6 @@ public class DoublyLinkedList<E> {
 
     //初始化链表
     public DoublyLinkedList() {
-//        this.size = 0;
-//        header = new Node<>(null, null, null);
-//        tail = new Node<>(header, null, null);
-//        header.next = tail;
-//        if (header == null) {
-//            System.err.println("header is null");
-//        }
-//        if (tail == null) {
-//            System.err.println("tail is null");
-//        }
     }
 
 
@@ -59,6 +49,42 @@ public class DoublyLinkedList<E> {
         else
             l.next = newNode;
         size++;
+    }
+
+    public void add(int index, E item) {
+        Node<E> succ = node(index);
+        final Node<E> pred = node(index).pre;
+        Node<E> newNode = new Node<>(pred, item, succ);
+        succ.pre = newNode;
+        if (pred == null){
+            header = newNode;
+        }else {
+            pred.next = newNode;
+        }
+    }
+
+    public E remove(int index) {
+        Node<E> x = node(index);
+        final E element = x.item;
+        final Node<E> next = x.next;
+        final Node<E> prev = x.pre;
+        if (prev == null) {
+            header = next;
+        } else {
+            prev.next = next;
+            x.pre = null;
+        }
+
+        if (next == null) {
+            tail = prev;
+        } else {
+            next.pre = prev;
+            x.next = null;
+        }
+
+        x.item = null;
+        size--;
+        return element;
     }
 
     public boolean isEmpty() {
@@ -102,16 +128,6 @@ public class DoublyLinkedList<E> {
             for (int i = size - 1; i > index; i--)
                 x = x.pre;
             return x;
-        }
-    }
-
-
-    //输出链表
-    public void print() {
-        Node<E> current = header.next;
-        while (current != null) {
-            System.out.println(current.item.toString());
-            current = current.next;
         }
     }
 }

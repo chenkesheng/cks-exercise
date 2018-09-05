@@ -77,7 +77,7 @@ public class LinkList<T> {
         Node<T> newNode = new Node<>(obj);
         //判断要插入的位置是否合法
         if (index < 1 || index > size + 1) {
-            throw new Exception("插入位置不合法");
+            throw new IndexOutOfBoundsException("插入位置不合法");
         }
         //记录遍历到第几个节点
         int length = 1;
@@ -94,7 +94,8 @@ public class LinkList<T> {
                 temp.next = newNode;
                 return;
             }
-//            temp = temp.next;
+            length++;
+            temp = temp.next;
         }
     }
 
@@ -140,8 +141,8 @@ public class LinkList<T> {
         Node<T> p = head;
         int length = 1;
 
-        Node<T> first = head;
-        Node<T> last = head;
+//        Node<T> first = head;
+//        Node<T> last = head;
 
         for (int j = m; j <= n; j++) {
             temp = temp.next;
@@ -235,16 +236,41 @@ public class LinkList<T> {
         }
     }
 
-//    public void deleteDuplication(Node<T> pHead) {
-//        Node<T> p = pHead;
+//    public void deleteDuplication(Node<T> header) {
+//        if (header == null) {
+//            return;
+//        }
+//        Node<T> p = header;
+//        Node<T> temp = null;
 //        while (p != null) {
-//            T data = p.data;
-//            Node<T> last = p.next;
-//            Node<T> pre = p;
-//            while (data.equals(last.data)){
-//                pre.next = last.next;
+//            Node<T> q = p.next;
+//            Node<T> prev = null;
+//            while (q != null) {
+//                if (q.data.equals(p.data)) {
+//                    prev = q;
+//                    size--;
+//                    if (q.next == null) {
+//                        break;
+//                    }
+//                }
+//                q = q.next;
 //            }
-//            p = p.next;
+//            if (prev == null) {
+//                temp = p;
+//                p = p.next;
+//            } else {//有重复元素
+//                //重复并且是第一个元素就开始重复
+//                if (temp == null) {
+//                    header = prev.next;
+//                    head = prev.next;
+//                    prev = null;
+//                    p = header;
+//                } else {
+//                    p.next = prev;
+//                }
+//                size--;
+//                p = p.next;
+//            }
 //        }
 //    }
 

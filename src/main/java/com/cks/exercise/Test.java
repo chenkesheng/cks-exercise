@@ -4,7 +4,9 @@ import com.cks.exercise.linkedList.CycleLinkedList;
 import com.cks.exercise.linkedList.DoublyLinkedList;
 import com.cks.exercise.linkedList.LinkList;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * @Author: cks
@@ -31,6 +33,12 @@ public class Test {
     }
 
     public static void main(String[] args) throws Exception {
+
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+
 //        LinkList<Object> linkList = new LinkList<>();
 ////        linkList.add("abc");
 ////        linkList.add("aaa");
@@ -68,15 +76,15 @@ public class Test {
 
 //        LinkedList<Object> list = new LinkedList<>();
 
-        DoublyLinkedList<Object> list = new DoublyLinkedList<>();
-        list.add(1);
-        list.add(2);
-        list.add(3);
-        list.add("aa");
-        list.add("aaa");
-        list.add("b");
-        list.add(2, "add");
-        list.remove(3);
+//        DoublyLinkedList<Object> list = new DoublyLinkedList<>();
+//        list.add(1);
+//        list.add(2);
+//        list.add(3);
+//        list.add("aa");
+//        list.add("aaa");
+//        list.add("b");
+//        list.add(2, "add");
+//        list.remove(3);
 //        list.print();
 //        System.out.println(list.get(4).toString());
         for(int i = 0;i<list.size();i++){

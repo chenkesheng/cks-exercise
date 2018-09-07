@@ -49,7 +49,7 @@ public class CycleLinkedList<E> {
      * @param obj
      */
     public void add(E obj) {
-        Node<E> newNode = new Node<E>(obj);
+        Node<E> newNode = new Node<>(obj);
         if (head == null) {
             head = newNode;
             tail = head;

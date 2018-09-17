@@ -127,7 +127,7 @@ public class BinarySortTree {
     }
 
     private boolean delete(Node node) {
-        Node temp = null;
+        Node temp;
         /**右子树空，只需要重接它的左子树
          * 如果是叶子结点，在这里也把叶子结点删除了
          * */

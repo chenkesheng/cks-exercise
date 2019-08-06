@@ -15,6 +15,9 @@ public class LRUMap<K, V> extends LinkedHashMap<K, V> {
     private int _maxSize;
 
     public LRUMap(int maxSize) {
+        /**
+         * accessOrder false代表按插入顺序 true代表按照访问顺序
+         */
         super(maxSize + 1, 1.0F, true);
         this._maxSize = maxSize;
     }

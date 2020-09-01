@@ -9,7 +9,7 @@ package com.cks.exercise.linkedList;
 public class DoublyLinkedList<E> {
 
     //内部节点类
-    private class Node<E> {
+    private static class Node<E> {
         Node<E> pre;
         Node<E> next;
         E item;
@@ -42,7 +42,7 @@ public class DoublyLinkedList<E> {
 //        tail.pre = newNode;
 //        size++;
         final Node<E> l = tail;
-        final Node<E> newNode = new Node<>(l, item, null);
+        final Node<E> newNode = new Node<E>(l, item, null);
         tail = newNode;
         if (l == null)
             header = newNode;
@@ -54,11 +54,11 @@ public class DoublyLinkedList<E> {
     public void add(int index, E item) {
         Node<E> succ = node(index);
         final Node<E> pred = succ.pre;
-        Node<E> newNode = new Node<>(pred, item, succ);
+        Node<E> newNode = new Node<E>(pred, item, succ);
         succ.pre = newNode;
-        if (pred == null){
+        if (pred == null) {
             header = newNode;
-        }else {
+        } else {
             pred.next = newNode;
         }
     }
@@ -118,16 +118,16 @@ public class DoublyLinkedList<E> {
     Node<E> node(int index) {
         // assert isElementIndex(index);
 
+        Node<E> x;
         if (index < (size >> 1)) {
-            Node<E> x = header;
+            x = header;
             for (int i = 0; i < index; i++)
                 x = x.next;
-            return x;
         } else {
-            Node<E> x = tail;
+            x = tail;
             for (int i = size - 1; i > index; i--)
                 x = x.pre;
-            return x;
         }
+        return x;
     }
 }

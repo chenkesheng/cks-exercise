@@ -4,11 +4,11 @@ package com.cks.exercise.linkedList;
  * @Author: cks
  * @Date: Created by 8:51 2018/9/3
  * @Package: com.cks.exercise.linkedList
- * @Description:循环链表->头插法
+ * @Description: 循环链表->头插法
  */
 public class CycleLinkedList<E> {
 
-    private class Node<E> {
+    private static class Node<E> {
         private E data;
         private Node<E> next;
 
@@ -37,7 +37,7 @@ public class CycleLinkedList<E> {
     /**
      * 获取链表长度
      *
-     * @return
+     * @return 返回大小
      */
     public int size() {
         return size;
@@ -46,7 +46,7 @@ public class CycleLinkedList<E> {
     /**
      * 新增数据
      *
-     * @param obj
+     * @param obj 入参
      */
     public void add(E obj) {
         Node<E> newNode = new Node<>(obj);
@@ -66,8 +66,8 @@ public class CycleLinkedList<E> {
     /**
      * 获取元素
      *
-     * @param index
-     * @return
+     * @param index 索引
+     * @return 返回值
      */
     public E get(int index) {
         int length = 0;

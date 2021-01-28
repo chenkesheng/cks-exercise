@@ -1,5 +1,6 @@
 package com.cks.exercise;
 
+import com.cks.exercise.collections.CksList;
 import com.cks.exercise.linkedList.CycleLinkedList;
 import com.cks.exercise.linkedList.DoublyLinkedList;
 import com.cks.exercise.linkedList.LinkList;
@@ -34,10 +35,30 @@ public class Test {
 
     public static void main(String[] args) throws Exception {
 
-        List<Integer> list = new ArrayList<>();
-        list.add(1);
-        list.add(2);
-        list.add(3);
+        String a = "salePrice=(orderFlag==1?inSalePrice:salePrice)";
+        String b = "(orderFlag==1?inSalePrice:salePrice)=(orderFlag==1?inSalePrice:salePrice)";
+        String c = "unitQty=unitQty";
+
+
+
+//        List<String> a  = new LinkedList<>();
+//
+//        CksList<Integer> test = new CksList<>();
+//        test.add(2);
+//        test.add(3);
+//        test.add(1);
+//        test.add(5);
+//
+//        test.remove(1);
+//
+//        for(int i = 0;i<test.size();i++){
+//            System.out.println(test.get(i).toString());
+//        }
+
+//        List<Integer> list = new ArrayList<>();
+//        list.add(1);
+//        list.add(2);
+//        list.add(3);
 
 //        LinkList<Object> linkList = new LinkList<>();
 ////        linkList.add("abc");
@@ -87,9 +108,9 @@ public class Test {
 //        list.remove(3);
 //        list.print();
 //        System.out.println(list.get(4).toString());
-        for(int i = 0;i<list.size();i++){
-            System.out.println(list.get(i).toString());
-        }
+//        for(int i = 0;i<list.size();i++){
+//            System.out.println(list.get(i).toString());
+//        }
     }
 
 }

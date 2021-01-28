@@ -16,7 +16,6 @@ public class CksList<E> {
 
     public CksList() {
         elementData = new Object[DEFAULT_CAPACITY];//开辟默认大小数组
-
     }
 
     public CksList(int capacity) {
@@ -101,8 +100,13 @@ public class CksList<E> {
     public void remove(int index) {
         //通过下标删除
         checkRange(index);
-        for (int i = index; i < size - 1; i++) {
-            elementData[i] = elementData[i + 1];
+//        for (int i = index; i < size - 1; i++) {
+//            elementData[i] = elementData[i + 1];
+//        }
+
+        //优化写法
+        if (size - 1 - index >= 0) {
+            System.arraycopy(elementData, index + 1, elementData, index, size - 1 - index);
         }
         size--;
     }

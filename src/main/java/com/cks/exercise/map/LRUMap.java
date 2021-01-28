@@ -12,7 +12,7 @@ import java.util.Map.Entry;
  */
 public class LRUMap<K, V> extends LinkedHashMap<K, V> {
 
-    private int _maxSize;
+    private final int _maxSize;
 
     public LRUMap(int maxSize) {
         /**

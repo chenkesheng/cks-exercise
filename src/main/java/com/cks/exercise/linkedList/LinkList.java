@@ -13,7 +13,7 @@ public class LinkList<T> {
 
     private int size = 0;
 
-    static class Node<T> {
+    private static class Node<T> {
         private T data;
         private Node<T> next;
 
@@ -38,6 +38,11 @@ public class LinkList<T> {
 
         public Node(T data) {
             this.data = data;
+        }
+
+        public Node(T data, Node<T> next) {
+            this.data = data;
+            this.next = next;
         }
 
         @Override

@@ -23,9 +23,8 @@ public class SingleObject {
                 }
                 return singleObject;
             }
-        } else {
-            return singleObject;
         }
+        return singleObject;
     }
 
     public void setValue(Integer x) {

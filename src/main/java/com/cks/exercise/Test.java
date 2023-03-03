@@ -4,6 +4,7 @@ import com.cks.exercise.collections.CksList;
 import com.cks.exercise.linkedList.CycleLinkedList;
 import com.cks.exercise.linkedList.DoublyLinkedList;
 import com.cks.exercise.linkedList.LinkList;
+import com.google.common.collect.Lists;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -17,16 +18,27 @@ import java.util.List;
  */
 public class Test {
 
+    /**
+     * 私有成员变量
+     */
     private static volatile Test instance;
 
+    /**
+     * 私有构造方法
+     */
     private Test() {
     }
 
+    /**
+     * 提供公共的访问方法
+     *
+     * @return
+     */
     public static Test init() {
         if (instance == null) {
             synchronized (Test.class) {
                 if (instance == null) {
-                    return new Test();
+                    instance = new Test();
                 }
             }
         }
@@ -38,7 +50,22 @@ public class Test {
         String a = "salePrice=(orderFlag==1?inSalePrice:salePrice)";
         String b = "(orderFlag==1?inSalePrice:salePrice)=(orderFlag==1?inSalePrice:salePrice)";
         String c = "unitQty=unitQty";
+        UserTest userTest = new UserTest();
+        List<String> userName = Lists.newArrayList();
+        UserEntity userEntity = new UserEntity();
+        userTest.setUserEntity(userEntity);
+        userEntity.setName(userName);
+        userName.add(a);
+        userName.add(b);
+        userName.add(c);
+        userEntity.setAge(18);
 
+        System.out.println(userTest.getUserEntity().getAge());
+        System.out.println(userTest.getUserEntity().getName().toString());
+
+
+        String[] result = {"a", "b", "c", "d"};
+        System.out.println(result.length);
 
 
 //        List<String> a  = new LinkedList<>();

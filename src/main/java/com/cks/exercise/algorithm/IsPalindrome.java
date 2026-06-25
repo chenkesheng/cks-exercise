@@ -24,4 +24,8 @@ public class IsPalindrome {
         }
         return x == num;
     }
+
+    public static void main(String[] args) {
+
+    }
 }

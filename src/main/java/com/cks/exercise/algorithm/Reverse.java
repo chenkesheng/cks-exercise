@@ -4,7 +4,7 @@ package com.cks.exercise.algorithm;
  * @Author: cks
  * @Date: Created by 下午8:22 2021/6/29
  * @Package: com.cks.exercise.algorithm
- * @Description:
+ * @Description: 数字反转
  */
 public class Reverse {
     public static void main(String[] args) {
@@ -26,7 +26,7 @@ public class Reverse {
     }
 
     public static int myAtoi(String s) {
-        if (s == null || s.length() == 0) {
+        if (s == null || "".equals(s)) {
             return 0;
         }
         s = s.trim();

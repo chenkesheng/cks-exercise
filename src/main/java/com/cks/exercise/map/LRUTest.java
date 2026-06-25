@@ -1,5 +1,7 @@
 package com.cks.exercise.map;
 
+import java.util.concurrent.ConcurrentSkipListMap;
+
 /**
  * @Author: cks
  * @Date: Created by 20:29 2018/9/4
@@ -39,5 +41,7 @@ public class LRUTest {
         int hashB = hash >>> 16;
         System.out.println(hashB);
         System.out.println(hash ^ hashB);
+
+        ConcurrentSkipListMap concurrentSkipListMap = new ConcurrentSkipListMap<>();
     }
 }

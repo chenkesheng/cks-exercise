@@ -12,7 +12,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 public class LongestCommonPrefix {
 
     public static void main(String[] args) {
-        String[] strs = {"dog","racecar","car"};
+        String[] strs = {"dog","racecar","car","cax"};
         String result = strs[0];
         for (String str : strs) {
             if (str.length() >= result.length()) {

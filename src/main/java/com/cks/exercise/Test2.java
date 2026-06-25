@@ -64,8 +64,12 @@ public class Test2 {
         public void testThread1() {
             lock.lock();
             try {
-//                condition1.await();
+                while (i != 0) {
+                    condition1.await();
+                }
                 i++;
+                //故意阻塞100毫秒，看看其他线程会不会排队
+                Thread.sleep(100);
                 System.out.println(i);
                 condition2.signal();
             } catch (Exception e) {
@@ -78,7 +82,9 @@ public class Test2 {
         public void testThread2() {
             lock.lock();
             try {
-//                condition2.await();
+                while (i != 1) {
+                    condition2.await();
+                }
                 i++;
                 System.out.println(i);
                 condition3.signal();

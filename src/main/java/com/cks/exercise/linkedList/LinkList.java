@@ -1,5 +1,7 @@
 package com.cks.exercise.linkedList;
 
+import com.cks.exercise.algorithm.两个链表并集和交集;
+
 /**
  * @Author: cks
  * @Date: Created by 10:01 2018/8/31
@@ -238,6 +240,41 @@ public class LinkList<T> {
                 }
             }
             p = p.next;
+        }
+    }
+
+    /**
+     * 是否相等
+     *
+     * @param head
+     * @param data
+     * @return
+     */
+   public boolean isPresent(Node head, Object data) {
+        Node t = head;
+        while (t != null) {
+            if (t.data.equals(data)) {
+                return true;
+            }
+            t = t.next;
+        }
+        return false;
+    }
+
+    public void getIntersection(Node head1,
+                                Node head2) {
+        Node t2 = head1;
+
+        // Traverse list1 and search each
+        // element of it in list2.
+        // If the element is present in
+        // list 2, then insert the
+        // element to result
+        while (t2 != null) {
+            if (isPresent(head2, t2.data)){
+                add((T) t2.data);
+            }
+            t2 = t2.next;
         }
     }
 

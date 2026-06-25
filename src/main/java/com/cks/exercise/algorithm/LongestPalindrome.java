@@ -4,7 +4,7 @@ package com.cks.exercise.algorithm;
  * @Author: cks
  * @Date: Created by 下午2:23 2021/6/24
  * @Package: com.cks.exercise.algorithm
- * @Description:
+ * @Description: 最长回文字串
  */
 public class LongestPalindrome {
 
